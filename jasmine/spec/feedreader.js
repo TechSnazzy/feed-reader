@@ -72,11 +72,12 @@ $(function() {
             * clicked and does it hide when clicked again.
             */
             it('menu changes visibility when clicked', () => {
-              var menuClick = document.querySelector('.menu-icon-link');
+              const menuClick = document.querySelector('.menu-icon-link');
+              const menuBody = document.querySelector('body');
               menuClick.click();
-              expect($('body').hasClass('menu-hidden')).toBe(false);
+              expect(menuBody.classList.contains('menu-hidden')).toBe(false);
               menuClick.click();
-              expect($('body').hasClass('menu-hidden')).toBe(true);
+              expect(menuBody.classList.contains('menu-hidden')).toBe(true);
             });
     });
 
@@ -88,6 +89,18 @@ $(function() {
            * Remember, loadFeed() is asynchronous so this test will require
            * the use of Jasmine's beforeEach and asynchronous done() function.
            */
+           beforeEach(function (done) {
+             loadFeed(0, function() {
+               done();
+             });
+           });
+
+           // it('Ensure at least a single .entry in the .feed container', () => {
+           //   const entry = document.querySelector('.entry');
+           //   const feed = document.querySelector('.feed');
+           //   expect(entry.toBeTruthy();
+           //   expect(feed.toBeTruthy();
+           // });
 
 
     });
