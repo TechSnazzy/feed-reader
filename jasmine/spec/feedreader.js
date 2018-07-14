@@ -126,6 +126,14 @@ $(function() {
        * by the loadFeed function that the content actually changes.
        * Remember, loadFeed() is asynchronous.
        */
+       beforeEach(done => {
+         // do something
+       })
+
+       it('ensure content changes on new feed load', () => {
+         // do something
+       })
+
     });
 
 }());
