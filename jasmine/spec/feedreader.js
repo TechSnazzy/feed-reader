@@ -62,8 +62,9 @@ $(function() {
              /* Select the body elemtent and make sure it has
               * the menu-hidden class assigned.
               */
-             expect(document.querySelector('body').classList.contains('menu-hidden')).toEqual(true);
-           })
+              const pageBody = document.querySelector('body');
+              expect(pageBody.classList.contains('menu-hidden')).toEqual(true);
+           });
 
            /* TODO: Write a test that ensures the menu changes
             * visibility when the menu icon is clicked. This test
