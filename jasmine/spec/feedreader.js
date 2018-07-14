@@ -95,12 +95,11 @@ $(function() {
              });
            });
 
-           // it('Ensure at least a single .entry in the .feed container', () => {
-           //   const entry = document.querySelector('.entry');
-           //   const feed = document.querySelector('.feed');
-           //   expect(entry.toBeTruthy();
-           //   expect(feed.toBeTruthy();
-           // });
+           it('Ensure at least a single .entry in the .feed container', () => {
+             const entry = document.querySelector('.entry');
+             const feed = document.querySelector('.feed');
+             expect(entry, feed).toBeDefined();
+           });
 
 
     });
