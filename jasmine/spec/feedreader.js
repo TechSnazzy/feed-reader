@@ -24,7 +24,7 @@ $(function() {
 
          /* Make sure there is at least one feed.
           */
-        it('are defined', function() {
+        it('allFeeds variable has been defined', () => {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
@@ -111,7 +111,7 @@ $(function() {
 
            /* Each feed container entry should have at least something in it.
             */
-           it('Ensure at least a single entry in the feed container', () => {
+           it('ensure at least a single entry in the feed container', () => {
              const entry = document.querySelector('.entry');
              const feed = document.querySelector('.feed');
              expect(entry, feed).toBeDefined();
@@ -121,7 +121,7 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-    describe('New Feed Selection', function () {
+    describe('New Feed Selection', function() {
       /* TODO: Write a test that ensures when a new feed is loaded
        * by the loadFeed function that the content actually changes.
        * Remember, loadFeed() is asynchronous.
