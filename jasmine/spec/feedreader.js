@@ -21,6 +21,9 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
+
+         /* Make sure there is at least one feed.
+          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -31,6 +34,9 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+
+         /* Each feed item must have a URL
+          */
          it('each feed has a URL defined', () => {
            for (let i in allFeeds) {
              expect(allFeeds[i].url).toBeDefined();
@@ -43,6 +49,9 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+         /* Each feed item must have a name
+          */
          it('each feed has a name defined', () => {
            for (let i in allFeeds) {
              expect(allFeeds[i].name).toBeDefined();
@@ -71,6 +80,11 @@ $(function() {
             * should have two expectations: does the menu display when
             * clicked and does it hide when clicked again.
             */
+
+            /* Select the menu-icon-link and body.
+             * If a click happens, the body will contain a menu-hidden class.
+             * If clicked again, the class should be removed.
+             */
             it('menu changes visibility when clicked', () => {
               const menuClick = document.querySelector('.menu-icon-link');
               const menuBody = document.querySelector('body');
@@ -95,7 +109,9 @@ $(function() {
              });
            });
 
-           it('Ensure at least a single .entry in the .feed container', () => {
+           /* Each feed container entry should have at least something in it.
+            */
+           it('Ensure at least a single entry in the feed container', () => {
              const entry = document.querySelector('.entry');
              const feed = document.querySelector('.feed');
              expect(entry, feed).toBeDefined();
