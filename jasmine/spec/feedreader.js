@@ -28,7 +28,7 @@ $(function() {
       expect(allFeeds.length).not.toBe(0);
     });
 
-    /* Each feed item must have a URL
+    /* Each feed item must have a URL.
      */
     it('each feed has a URL defined', () => {
       for (let i in allFeeds) {
@@ -37,7 +37,7 @@ $(function() {
       };
     });
 
-    /* Each feed item must have a name
+    /* Each feed item must have a name.
      */
     it('each feed has a name defined', () => {
       for (let i in allFeeds) {
@@ -83,14 +83,20 @@ $(function() {
     it('ensure at least a single entry in the feed container', () => {
       const entry = document.querySelector('.entry');
       const feed = document.querySelector('.feed');
+      /* First make sure the .feed parent class and the
+       * child .entry class are defined.
+       */
       expect(entry, feed).toBeDefined();
+      /* Then get the amount of entries in the feed container and
+       * make sure the amount is greater than zero.
+       */
+      expect($('.feed .entry').length).toBeGreaterThan(0);
     });
 
 
   });
 
   describe('New Feed Selection', function() {
-
      /* Before the spec runs grab the first feed HTML and then
       * grab the HTML of the feed when the content is updated
       * and compare that they are different.
