@@ -3,7 +3,10 @@
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
 ## Run this Project
-Download, fork or clone this project from this repo and run the `index.html` file in your browser.
+
+1. Visit my Feed Reader project page here: [Feed Reader](https://github.com/TechSnazzy/feed-reader)
+2. Click the "Clone or download" button to [clone](https://services.github.com/on-demand/github-cli/clone-repo-cli) or download the project.
+3. Once you have the project on your computer please run the `index.html` file to view the page.
 
 
 ## Why this Project?
