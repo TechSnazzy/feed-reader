@@ -83,8 +83,8 @@ $(function() {
     it('ensure at least a single entry in the feed container', () => {
       const entry = document.querySelector('.entry');
       const feed = document.querySelector('.feed');
-      /* First make sure the .feed parent class and the
-       * child .entry class are defined.
+      /* First make sure the .feed container
+       * has a class of .entry.
        */
       expect(entry, feed).toBeDefined();
       /* Then get the amount of entries in the feed container and
