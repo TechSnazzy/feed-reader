@@ -41,7 +41,10 @@ $(function() {
        * like below.
        */
       allFeeds.forEach(function(feed){
-        expect(feed.url).toBeDefined();
+        // originally wrote the line like this...
+        // expect(feed.url).toBeDefined();
+        // can also write it like this...
+        expect(feed.url).toBeTruthy();
         expect(feed.url.length).not.toBe(0);
       })
     });
