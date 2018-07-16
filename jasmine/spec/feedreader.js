@@ -31,10 +31,19 @@ $(function() {
     /* Each feed item must have a URL.
      */
     it('each feed has a URL defined', () => {
-      for (let i in allFeeds) {
-        expect(allFeeds[i].url).toBeDefined();
-        expect(allFeeds[i].url.length).not.toBe(0);
-      };
+      // for (let i in allFeeds) {
+      //   expect(allFeeds[i].url).toBeDefined();
+      //   expect(allFeeds[i].url.length).not.toBe(0);
+      // };
+
+      /* Originally wrote the for loop like above.
+       * Instructor recommended using a forEach loop instead
+       * like below.
+       */
+      allFeeds.forEach(function(feed){
+        expect(feed.url).toBeDefined();
+        expect(feed.url.length).not.toBe(0);
+      })
     });
 
     /* Each feed item must have a name.
