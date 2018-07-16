@@ -85,9 +85,12 @@ $(function() {
   describe('Initial Entries', function() {
 
     beforeEach(function(done) {
-      loadFeed(0, function() {
-        done();
-      });
+      // originally wrote like this...
+      // loadFeed(0, function() {
+      //   done();
+      // });
+      // shortened code to this...
+      loadFeed(0, done);
     });
 
     /* Each feed container entry should have at least something in it.
