@@ -1,13 +1,15 @@
 /* app.js
  *
- * This is our RSS feed reader application. It uses Udacity's
- * rsstojson.udacity.com proxy to grab RSS feeds as a JSON object
- * we can make use of. It also uses the Handlebars templating
- * library and jQuery.
+ * This is our RSS feed reader application. It originally used Udacity's
+ * rsstojson.udacity.com proxy to convert RSS feeds into JSON at request
+ * time. That proxy was retired along with the rest of the course
+ * infrastructure and no longer resolves, so there's no live network
+ * fetch happening here anymore.
  *
- * NOTE: rsstojson.udacity.com no longer resolves (checked 2026-09),
- * so loadFeed() currently fails silently via its AJAX error handler.
- * There is no drop-in keyless replacement for this proxy.
+ * Instead, loadFeed() reads a static snapshot bundled in data/feeds.json
+ * so the app (menu, templating, tests) still works end to end without
+ * depending on any external service or account. The `url` field per
+ * feed is kept for reference/display; it's not fetched at runtime.
  */
 
 // The names and URLs to all of the feeds we'd like available.
@@ -37,37 +39,30 @@ function init() {
   loadFeed(0);
 }
 
-/* This function performs everything necessary to load a
- * feed using the rsstojson.udacity.com proxy. It will then
- * perform all of the DOM operations required to display
- * feed entries on the page. Feeds are referenced by their
- * index position within the allFeeds array.
- * This function all supports a callback as the second parameter
- * which will be called after everything has run successfully.
+/* This function performs everything necessary to load a feed
+ * from the static data/feeds.json snapshot (see note above). It
+ * performs all of the DOM operations required to display feed
+ * entries on the page. Feeds are referenced by their index
+ * position within the allFeeds array.
+ * This function also supports a callback as the second parameter
+ * which will be called after everything has run.
  */
 function loadFeed(id, cb) {
-  var feedUrl = allFeeds[id].url,
-    feedName = allFeeds[id].name;
+  var feedName = allFeeds[id].name;
 
-  $.ajax({
-    type: 'POST',
-    url: 'https://rsstojson.udacity.com/parseFeed',
-    data: JSON.stringify({ url: feedUrl }),
-    contentType: 'application/json',
-    success: function(result, status) {
+  $.getJSON('data/feeds.json')
+    .done(function(result) {
       var container = $('.feed'),
         title = $('.header-title'),
-        entries = result.feed.entries,
-        entriesLen = entries.length,
+        entries = result.feeds[id].entries,
         entryTemplate = Handlebars.compile($('.tpl-entry').html());
 
       title.html(feedName); // Set the header text
       container.empty(); // Empty out all previous entries
 
-      /* Loop through the entries we just loaded via the Google
-       * Feed Reader API. We'll then parse that entry against the
-       * entryTemplate (created above using Handlebars) and append
-       * the resulting HTML to the list of entries on the page.
+      /* Loop through the entries for this feed and parse each one
+       * against the entryTemplate (created above using Handlebars),
+       * appending the resulting HTML to the list of entries.
        */
       entries.forEach(function(entry) {
         container.append(entryTemplate(entry));
@@ -76,15 +71,12 @@ function loadFeed(id, cb) {
       if (cb) {
         cb();
       }
-    },
-    error: function(result, status, err) {
-      //run only the callback without attempting to parse result due to error
+    })
+    .fail(function() {
       if (cb) {
         cb();
       }
-    },
-    dataType: 'json'
-  });
+    });
 }
 
 /* All of this functionality is heavily reliant upon the DOM, so we

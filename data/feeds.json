@@ -1,0 +1,88 @@
+{
+  "feeds": [
+    {
+      "name": "Udacity Blog",
+      "url": "http://blog.udacity.com/feed",
+      "entries": [
+        {
+          "title": "Choosing Your First Nanodegree Program",
+          "link": "https://www.udacity.com/blog",
+          "contentSnippet": "A look at how to pick a learning path based on your career goals and current skill level."
+        },
+        {
+          "title": "5 Tips for Landing a Developer Job",
+          "link": "https://www.udacity.com/blog",
+          "contentSnippet": "Practical advice on portfolios, interviews, and standing out as a self-taught developer."
+        },
+        {
+          "title": "What Mentors Wish Students Knew",
+          "link": "https://www.udacity.com/blog",
+          "contentSnippet": "Common early mistakes and how a bit of structure can save you weeks of frustration."
+        }
+      ]
+    },
+    {
+      "name": "CSS Tricks",
+      "url": "http://feeds.feedburner.com/CssTricks",
+      "entries": [
+        {
+          "title": "A Complete Guide to CSS Grid",
+          "link": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+          "contentSnippet": "Every property and value you need to lay out a page with CSS Grid, in one reference."
+        },
+        {
+          "title": "Flexbox in 5 Minutes",
+          "link": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+          "contentSnippet": "A fast primer on flex containers, flex items, and the properties that control them."
+        },
+        {
+          "title": "Custom Properties Are More Useful Than You Think",
+          "link": "https://css-tricks.com/",
+          "contentSnippet": "CSS variables aren't just for theming — a few clever use cases you might be missing."
+        }
+      ]
+    },
+    {
+      "name": "HTML5 Rocks",
+      "url": "http://feeds.feedburner.com/html5rocks",
+      "entries": [
+        {
+          "title": "Modern Web APIs Worth Knowing",
+          "link": "https://web.dev/",
+          "contentSnippet": "HTML5Rocks' content lives on at web.dev — a rundown of browser APIs that quietly became standard."
+        },
+        {
+          "title": "Service Workers, Revisited",
+          "link": "https://web.dev/learn/pwa/service-workers/",
+          "contentSnippet": "Offline caching strategies and the lifecycle events every service worker author should know."
+        },
+        {
+          "title": "Performance Budgets That Actually Stick",
+          "link": "https://web.dev/",
+          "contentSnippet": "Why a performance budget only works when it's tied to a real user metric, not a vibe."
+        }
+      ]
+    },
+    {
+      "name": "Linear Digressions",
+      "url": "http://feeds.feedburner.com/udacity-linear-digressions",
+      "entries": [
+        {
+          "title": "Overfitting, Explained Simply",
+          "link": "#",
+          "contentSnippet": "Why a model that aces training data can still fail in the real world."
+        },
+        {
+          "title": "The Bias-Variance Tradeoff",
+          "link": "#",
+          "contentSnippet": "A conversational walkthrough of one of machine learning's foundational tensions."
+        },
+        {
+          "title": "What Makes a Good Feature",
+          "link": "#",
+          "contentSnippet": "Feature engineering tips that matter more than most model-tuning tricks."
+        }
+      ]
+    }
+  ]
+}
