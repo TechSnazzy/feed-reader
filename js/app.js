@@ -1,9 +1,13 @@
 /* app.js
  *
- * This is our RSS feed reader application. It uses the Google
- * Feed Reader API to grab RSS feeds as JSON object we can make
- * use of. It also uses the Handlebars templating library and
- * jQuery.
+ * This is our RSS feed reader application. It uses Udacity's
+ * rsstojson.udacity.com proxy to grab RSS feeds as a JSON object
+ * we can make use of. It also uses the Handlebars templating
+ * library and jQuery.
+ *
+ * NOTE: rsstojson.udacity.com no longer resolves (checked 2026-09),
+ * so loadFeed() currently fails silently via its AJAX error handler.
+ * There is no drop-in keyless replacement for this proxy.
  */
 
 // The names and URLs to all of the feeds we'd like available.
@@ -26,17 +30,15 @@ var allFeeds = [
   }
 ];
 
-/* This function starts up our application. The Google Feed
- * Reader API is loaded asynchonously and will then call this
- * function when the API is loaded.
+/* This function starts up our application, loading the first
+ * feed we've defined (index of 0).
  */
 function init() {
-  // Load the first feed we've defined (index of 0).
   loadFeed(0);
 }
 
 /* This function performs everything necessary to load a
- * feed using the Google Feed Reader API. It will then
+ * feed using the rsstojson.udacity.com proxy. It will then
  * perform all of the DOM operations required to display
  * feed entries on the page. Feeds are referenced by their
  * index position within the allFeeds array.
@@ -85,17 +87,14 @@ function loadFeed(id, cb) {
   });
 }
 
-/* Google API: Loads the Feed Reader API and defines what function
- * to call when the Feed Reader API is done loading.
- */
-google.setOnLoadCallback(init);
-
 /* All of this functionality is heavily reliant upon the DOM, so we
  * place our code in the $() function to ensure it doesn't execute
  * until the DOM is ready.
  */
 $(
   (function() {
+    init();
+
     var container = $('.feed'),
       feedList = $('.feed-list'),
       feedItemTemplate = Handlebars.compile($('.tpl-feed-list-item').html()),
